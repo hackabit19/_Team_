@@ -29,4 +29,12 @@ router.get('/google/redirect',passport.authenticate('google',{failureRedirect:'/
     }
 });
 
+router.post('/phone',(req,res)=>{
+    User.updateOne({googleId : req.body.Id},{phone : req.body.phone}, (err,res)=>{
+        if(err) throw err;
+        else 
+        console.log('User Phone number added');
+    });
+});
+
 module.exports = router;
