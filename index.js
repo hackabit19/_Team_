@@ -61,7 +61,7 @@ app.get('/authFromAndroid', function (req, res) {
       }
     });
   });
-
-app.listen(3000,()=>{
+var port = process.env.PORT || 3000;
+app.listen(port,()=>{
    console.log('Listening to 3000');
 });
