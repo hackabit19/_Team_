@@ -1,4 +1,5 @@
 const express = require('express');
+const Ably = require('Ably');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile');
 const dataRoutes = require('./routes/data-form');
@@ -9,6 +10,8 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const realtime = new Ably.Realtime({key: keys.ably.ablyKey });
+const randomstring = require("randomstring");
 
 const app= express();
 
@@ -41,6 +44,23 @@ app.get('/',(req,res)=>{
     console.log('Waah');
     res.render('home', {user: req.user});
 });
+
+app.get('/authFromAndroid', function (req, res) {
+    var tokenParams = {
+      'clientId': randomstring.generate({
+          length: 12,
+          
+        })
+    }; 
+    realtime.auth.createTokenRequest(tokenParams, function(err, tokenRequest) {
+      if (err) {
+        res.status(500).send('Error requesting token: ' + JSON.stringify(err));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(tokenRequest));
+      }
+    });
+  });
 
 app.listen(3000,()=>{
    console.log('Listening to 3000');
