@@ -17,26 +17,68 @@
   <div class="form">
 
     <form>
-      <input type="text" placeholder="Full Name"/>
-      <input type="text" placeholder="Email Address"/>
-       <select name="gender" placeholder="Gender">
+      <input type="text" id="name" placeholder="Full Name"/>
+      <input type="text" id="email" placeholder="Email Address"/>
+       <select name="gender" id="gender" placeholder="Gender">
           <option value="Male">Male</option>
           <option value="Female">Female</option>
       </select> 
-      <input type="password" placeholder="Set a Password"/>
+      <input type="password" id="password" placeholder="Set a Password"/>
       
     </form>
 
     <form class="login-form">
-      <button type="button" onclick="window.location.href='login.html'">SIGN UP</button>
+      <button id="signUp">SIGN UP</button>
       <div class="google-btn">
         <div class="google-icon-wrapper">
           <img class="google-icon-svg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
         </div>
-        <p class="btn-text"><b>Sign in with Google</b></p>
+        <p class="btn-text" id="googleAuth"><b>Sign in with Google</b></p>
       </div>
     </form>
   </div>
 </div>
-
 </body>
+<script>
+  const signUp = document.getElementById('signUp');
+  const auth = document.getElementById('googleAuth');
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const gender = document.getElementById('gender');
+  const password = document.getElementById('password');
+
+  signUp.addEventListener("click",(event)=>{
+    axios.get('/login', {
+    params: {
+      name : name.innerText,
+      email : email.innerText,
+      gender : gender.innerText,
+      password : password.innerText
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    console.log('Sign Up was initiated');
+  });  
+  });
+
+  auth.addEventListener("click",(event)=>{
+    axios.get('/auth/google')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    console.log('Auth was initiated');
+  });
+  })   
+</script>
+</html>
