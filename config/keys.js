@@ -13,8 +13,5 @@ module.exports={
     },
     ably:{
         ablyKey: 'FzGgmg.Z07Qbw:uMa6eafC95XUl-ZJ'
-    },
-    geocoding:{
-        geocodingKey: 'AIzaSyAq1q2lzF5wRQZyV-JcA_eKCqWSExmPbFE'
     }
 };
