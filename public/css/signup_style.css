@@ -133,3 +133,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;    
 }
+
+.google-btn {
+    padding: 8px;
+    width: 95%;
+    height: 38px;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    cursor: hand;
+    align-self: center;
+    user-select: none;
+    transition: all 400ms ease 0s;
+    display: flex;
+    align-items: center;
+}
