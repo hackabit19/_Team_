@@ -57,7 +57,7 @@ app.use('/safety', safetyRoutes);
 app.get('/',(req,res)=>{
     //renders homepage, object tells if user is logged in or not, show buttons accordingly
     console.log('Waah');
-    res.sendFile(__dirname + 'home.html');
+    res.sendFile(path.join(__dirname, '/public', 'home.html'));
 });
 
 app.get('/authFromAndroid', function (req, res) {
