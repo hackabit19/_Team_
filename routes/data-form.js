@@ -16,4 +16,14 @@ router.post('/',(req,res)=>{
      });     
 });
 
+router.get('/',(req,res)=>{
+    Event.find({}).toArray((err,result)=>{
+        if(err) throw err;
+        else{
+            console.log(result);
+            res.send(result).status(200);
+        }
+    });
+});
+
 module.exports = router;
