@@ -62,21 +62,6 @@ app.get('/authFromAndroid', function (req, res) {
     });
   });
 
-app.get('/pushNotification',(req,res)=>{
-  let ably = new Ably.Rest('1WChTA.uHWDtQ:IhvL2TqZ23d82dJa');
-let channel = rest.channels.get('test_channel');
-
-let pushPayload = {
-  notification: {
-    title: 'Hello from Ably!',
-    body: 'Example push notification from Ably'
-  },
-  data: { foo: 'bar' }
-};
-channel.publish({extras : {push:pushPayload}});
-res.send('Push Notification sent').status(200);
-});
-
 
 var port = process.env.PORT || 3000;
 app.listen(port,()=>{
