@@ -1,5 +1,7 @@
 const express = require('express');
 const Ably = require('Ably');
+const parser = require('body-parser');
+const cors = require('cors');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile');
 const dataRoutes = require('./routes/data-form');
@@ -31,6 +33,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set('view engine','ejs');
+
+app.use(parser.json()); //should be written above below lines...parse json data
+app.use(parser.urlencoded({extended:true}));
+app.use(express.static('public'));
+app.use('*', function(req, res, next){ // to alllow cors error //mdn cors
+    res.set('Access-Control-Allow-Origin','*') //editing header
+    res.set('Access-Control-Allow-Headers','content-type'); //for chrome
+    next();
+});
 
 //setting up routes
 app.use('/auth', authRoutes);

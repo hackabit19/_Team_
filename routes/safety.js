@@ -37,12 +37,14 @@ router.post('/',(req,res)=>{
 });
 
 router.get('/',(req,res)=>{
-    Safety.findOne({longitude : req.body.longitude, latitude : req.body.latitude},(err,result)=>{
+    /**Safety.findOne({longitude : req.body.longitude, latitude : req.body.latitude},(err,result)=>{
         if(err) console.log('Invalid or Unavailable details');
         else{
             res.json(result).status(200);
         }
-    });
+    });*/
+    res.send('Hello').status(200);
 });
+
 
 module.exports = router;
