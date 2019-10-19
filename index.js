@@ -14,13 +14,11 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const realtime = new Ably.Realtime({key: keys.ably.ablyKey });
 const randomstring = require("randomstring");
-
+const path = require('path');
 const app= express();
-
+const ejs = require('ejs');
 //connected to database
-mongoose.connect(keys.mongodb.dbURI,()=>{
-    console.log('Database connected');
-});
+
 
 //create cookie
 app.use(cookieSession({
@@ -32,11 +30,17 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.static('public'));
 app.set('view engine','ejs');
+
+mongoose.connect(keys.mongodb.dbURI,()=>{
+  console.log('Database connected');
+});
 
 app.use(parser.json()); //should be written above below lines...parse json data
 app.use(parser.urlencoded({extended:true}));
-app.use(express.static('public'));
+
+//app.use(express.static(path.join(__dirname,'public')));
 app.use('*', function(req, res, next){ // to alllow cors error //mdn cors
     res.set('Access-Control-Allow-Origin','*') //editing header
     res.set('Access-Control-Allow-Headers','content-type'); //for chrome
@@ -53,7 +57,7 @@ app.use('/safety', safetyRoutes);
 app.get('/',(req,res)=>{
     //renders homepage, object tells if user is logged in or not, show buttons accordingly
     console.log('Waah');
-    res.render('home', {user: req.user});
+    res.sendFile(__dirname + 'home.html');
 });
 
 app.get('/authFromAndroid', function (req, res) {
