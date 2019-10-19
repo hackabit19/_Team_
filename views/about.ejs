@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka&display=swap" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" />
+
+    <title>About Us</title>
+    <style>
+        .main-wrap {
+
+            background-image: url("safety1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .section-title.center {
+            padding: 25px 0 45px 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 40px;
+            width: 2px;
+            margin-left: -1.5px;
+            background-color: #eee;
+        }
+
+        .timeline>li {
+            position: relative;
+            margin-bottom: 50px;
+            min-height: 50px;
+        }
+
+        .timeline>li:before,
+        .timeline>li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline>li:after {
+            clear: both;
+        }
+
+        .timeline>li .timeline-panel {
+            float: right;
+            position: relative;
+            width: 100%;
+            padding: 0 20px 0 100px;
+            text-align: left;
+        }
+
+        .timeline>li .timeline-panel:before {
+            right: auto;
+            left: -15px;
+            border-right-width: 15px;
+            border-left-width: 0;
+        }
+
+        .timeline>li .timeline-panel:after {
+            right: auto;
+            left: -14px;
+            border-right-width: 14px;
+            border-left-width: 0;
+        }
+
+        .timeline>li .timeline-image {
+            z-index: 100;
+            position: relative;
+            left: 0;
+            width: 70px;
+            height: 70px;
+            margin-left: 0;
+            border: 5px solid rgb(39, 38, 38);
+            border-radius: 100%;
+            background: rgb(182, 176, 176);
+            text-align: center;
+        }
+
+        .timeline>li .timeline-image h4 {
+            margin-top: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .timeline>li.timeline-inverted>.timeline-panel {
+            float: right;
+            padding: 0 20px 0 100px;
+            text-align: left;
+        }
+
+        .timeline>li.timeline-inverted>.timeline-panel:before {
+            right: auto;
+            left: -15px;
+            border-right-width: 15px;
+            border-left-width: 0;
+        }
+
+        .timeline>li.timeline-inverted>.timeline-panel:after {
+            right: auto;
+            left: -14px;
+            border-right-width: 14px;
+            border-left-width: 0;
+        }
+
+        .timeline>li:last-child {
+            margin-bottom: 40px;
+        }
+
+        .timeline .timeline-heading h4 {
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .timeline .timeline-heading h2 {
+            margin-top: 30px;
+        }
+
+        .timeline .timeline-heading h4.subheading {
+            text-transform: none;
+            color: #629ca7;
+            font-size: 20px;
+        }
+
+        .timeline .timeline-body>p,
+        .timeline .timeline-body>ul {
+            margin-bottom: 0;
+        }
+
+        .timeline:before {
+            left: 50%;
+        }
+
+        .timeline>li {
+            margin-bottom: 100px;
+            min-height: 100px;
+        }
+
+        .timeline>li .timeline-panel {
+            float: left;
+            width: 41%;
+            padding: 0 20px 20px 30px;
+            text-align: right;
+        }
+
+        .timeline>li .timeline-image {
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+        }
+
+        .timeline>li .timeline-image h4 {
+            margin-top: 16px;
+            line-height: 18px;
+            font-weight: 400;
+        }
+
+        .timeline>li.timeline-inverted>.timeline-panel {
+            float: right;
+            padding: 0 30px 20px 20px;
+            text-align: left;
+        }
+
+        }
+
+        @media(min-width:992px) {
+            #here-me h1 {
+                margin: 10px 0 0px;
+            }
+            .timeline>li {
+                min-height: 150px;
+            }
+            .timeline>li .timeline-panel {
+                padding: 0 20px 20px;
+            }
+            .timeline>li .timeline-image {
+                width: 150px;
+                height: 150px;
+                margin-left: -75px;
+            }
+            .timeline>li .timeline-image h4 {
+                margin-top: 30px;
+                font-size: 18px;
+                line-height: 26px;
+            }
+            .timeline>li.timeline-inverted>.timeline-panel {
+                padding: 0 20px 20px;
+            }
+        }
+
+        @media(min-width:1200px) {
+            .timeline>li {
+                min-height: 170px;
+            }
+            .timeline>li .timeline-panel {
+                padding: 10px 20px 20px 100px;
+            }
+            .timeline>li .timeline-image {
+                width: 150px;
+                height: 150px;
+                margin-left: -75px;
+            }
+            .timeline>li .timeline-image h4 {
+                margin-top: 40px;
+                font-weight: 400;
+            }
+            .timeline>li.timeline-inverted>.timeline-panel {
+                padding: 10px 100px 20px 20px;
+            }
+        }
+
+        .example {
+            border: 1px dotted white;
+            width: 100%;
+            position: relative;
+        }
+
+        .safety,
+        .pen {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            right: 45px;
+            top: 50px;
+        }
+
+        .img-circle {
+            right: 50%;
+            left: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-light bg-dark justify-content-between" style="border-radius:0px 0px 10px 10px ">
+        <h1>
+            <a href="index.html" style="color:white;padding-left:30px; text-align:left;text-decoration:none;font-family:'Vidaloka',serif">Surakshit</a>
+        </h1>
+    </nav>
+    <div class="main-wrap" style="padding:20px;padding-bottom:70px">
+        <h2>
+            <center>Know More About our Website</center>
+        </h2>
+        <div class="container">
+            <div class="section-title center">
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+
+                        <!-- Education Section-->
+
+                        <li>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3>Safety Index of Different Places</h3>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>I'm pursuing my bachelor's in Information Technology, currently being in 5th Semester.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-image">
+                                <img src="safety-index.jpg" class="safety" alt="">
+                            </div>
+
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3>Report your experience</h3>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>I completed my Secondary Education in Science from CISCE Board scoring 88.8 percent marks.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-image">
+                                <img src="pen.jpg" class="pen" alt="">
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="example"></div>
+        <br>
+        <!-- testimonials -->
+        <div class="row-fluid testimonials">
+            <div class="headline">
+                <h2>
+                    <span>
+                        <center>Here Us Speak</center>
+                    </span>
+                </h2>
+            </div>
+            <br>
+            <br>
+            <ul>
+                <li class="span3">
+                    <div class="testimonial">
+                        <img src="user-1.png" alt="" class="img-circle" />
+                        <br>
+                        <p>
+                            &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi
+                            definitiones nec ut.&rdquo;
+                        </p>
+                        <span>&#45;&#45; Mike lamouz
+                        </span>
+                    </div>
+                </li>
+                <li class="span3">
+                    <div class="testimonial">
+                        <img src="user-2.png" alt="" class="img-circle" />
+                        <br>
+                        <p>
+                            &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi
+                            definitiones nec ut.&rdquo;
+                        </p>
+                        <span>&#45;&#45; Leslie samarov
+                        </span>
+                    </div>
+                </li>
+                <li class="span3">
+                    <div class="testimonial">
+                        <img src="user-3.png" alt="" class="img-circle" />
+                        <br>
+                        <p>
+                            &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi
+                            definitiones nec ut.&rdquo;
+                        </p>
+                        <span>&#45;&#45; Jonathan
+                        </span>
+                    </div>
+                </li>
+                <li class="span3">
+                    <div class="testimonial">
+                        <img src="user-3.png" alt="" class="img-circle" style="margin-right:auto;margin-left:auto" />
+                        <br>
+                        <p>
+                            &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi
+                            definitiones nec ut.&rdquo;
+                        </p>
+                        <span>&#45;&#45; Jonathan
+                        </span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

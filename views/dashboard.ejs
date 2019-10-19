@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka&display=swap" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <title>Report</title>
+    <style>
+        .modal2 {
+            /*position: fixed;
+                        /* Stay in place */
+            /* Sit on top */
+            /*top: 20%; */
+            left: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            /*overflow: auto;*/
+            /* Enable scroll if needed */
+            background-color: #474e5d;
+        }
+
+        /* Modal Content/Box */
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        /* Extra styles for the cancel button */
+
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+
+        .cancelbtn {
+            float: left;
+            width: 25%;
+        }
+
+        .example {
+            border: 1px dotted white;
+            width: 100%;
+            position: relative;
+        }
+
+        #ques {
+            border-radius: 100%;
+        }
+
+        .main-wrap {
+
+            background-image: url("safety.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .button1:hover {
+            background-color: red;
+            /* Green */
+            color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-light bg-dark justify-content-between" style="border-radius:0px 0px 10px 10px ">
+        <h1>
+            <a href="index.html" style="color:white;padding-left:30px; text-align:left;text-decoration:none;font-family:'Vidaloka',serif">Surakshit</a>
+        </h1>
+    </nav>
+    <div class="bg-image"></div>
+
+    <div class="main-wrap" style="padding-right:30px; padding-left:30px">
+        <div class="bg-text"></div>
+
+        <br>
+        <br>
+        <br>
+        <h3>
+            <center>Enter your Location</center>
+        </h3>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-7">
+                <input type="text" name="place" placeholder="Location" id="" style="float:right; padding:7px; width:400px">
+            </div>
+            <div class="col-sm-5">
+                <button class="btn btn-red btn-large" type="submit" style="float:left">
+                    <center>Send Location</center>
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="example"></div>
+        <br>
+        <h2>
+            <center>Possibility of crimes in your current location</center>
+        </h2>
+        <label for="theft">
+            <b>Theft</b>
+        </label>
+        <br>
+        <div id="myBar1" style="width:0%; color:black; height:5px; text-align:center; border-radius: 8px; background-color:grey;float:left"></div>
+        <p id="demo1" style="float:right">0%</p>
+        <br>
+        <label for="harrass">
+            <b>Harrassment</b>
+        </label>
+        <div id="myBar2" style="width:0%; color:black; height:5px; text-align:center; border-radius: 8px; background-color:grey"></div>
+        <p id="demo2" style="float:right">0%</p>
+        <br>
+        <label for="rape">
+            <b>Rape</b>
+        </label>
+        <div id="myBar3" style="width:0%; color:black; height:5px; text-align:center; border-radius: 8px; background-color:grey"></div>
+        <p id="demo3" style="float:right">0%</p>
+        <br>
+        <label for="murder">
+            <b>Murder</b>
+        </label>
+        <div id="myBar4" style="width:0%; color:black; height:5px; text-align:center; border-radius: 8px; background-color:grey"></div>
+        <p id="demo4" style="float:right">0%</p>
+        <br>
+        <br>
+        <center>
+            <h3>Your Safety-Index is:</h3>
+            <br>
+            <img src="mark.png" alt="" id="ques" style="height:80px;width:80px">
+            <br>
+            <br>
+            <button class="btn btn-red btn-large" id="but" onclick="move1(),move2(),move3(),move4()" style="border-color:black">Show Results</button>
+        </center>
+        <br>
+        <br>
+        <br>
+        <div class="example"></div>
+        <br>
+        <br>
+        <h2>
+            <center>Report Your Grievances</center>
+        </h2>
+        <br>
+        <br>
+        <center>
+            <form method="post" class="contactForm">
+
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="text" name="name" placeholder="* Enter your full name" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
+                        />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="email" placeholder="* Enter your email address" data-rule="email" data-msg="Please enter a valid email"
+                        />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="span8 margintop10 field form-group">
+                        <input type="text" name="subject" placeholder="Enter your subject" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
+                        />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="span8 margintop10 field form-group">
+                        <textarea rows="12" name="message" class="input-block-level" placeholder="* Your message here..." data-rule="required" data-msg="Please write something"></textarea>
+                        <div class="validation"></div>
+
+                        <p>
+                            <button class="btn btn-theme btn-medium margintop10 pull-left" type="submit">Send message</button>
+                            <span class="pull-right margintop20">* Please fill all required form field, thanks!</span>
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+
+
+            <p>
+                <center>
+                    <button type="button" class="btn btn-red btn-large" style="border-color:black">Send Report</button>
+                </center>
+            </p>
+
+
+    </div>
+
+
+
+    <script>
+        $(function () {
+            $("#but").on("click", function () {
+                var index = 8;
+                if (index < 4) {
+                    document.getElementById("ques").src = "tick.jpg";
+                    document.getElementById("ques").style.height = "100px";
+                    document.getElementById("ques").style.width = "100px";
+                }
+                else if (index >= 4 && index <= 6) {
+                    document.getElementById("ques").src = "exclaim.jpg";
+                    document.getElementById("ques").style.height = "100px";
+                    document.getElementById("ques").style.width = "100px";
+                }
+                else {
+                    document.getElementById("ques").src = "cross.jpg";
+                    document.getElementById("ques").style.height = "100px";
+                    document.getElementById("ques").style.width = "100px";
+                }
+            })
+        })
+
+        function move1() {
+            var elem = document.getElementById("myBar1");
+            var width = 0;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width > 19 && width < 51)
+                    document.getElementById("myBar1").style.backgroundColor = '#cf7a29';
+                else if (width > 50)
+                    document.getElementById("myBar1").style.backgroundColor = '#c23b3b';
+                else
+                    document.getElementById("myBar1").style.backgroundColor = '#4eb92d';
+                if (width >= 20) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    document.getElementById("demo1").innerHTML = width * 1 + '%';
+                }
+            }
+        }
+        function move2() {
+            var elem = document.getElementById("myBar2");
+            var width = 0;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width > 19 && width < 51)
+                    document.getElementById("myBar2").style.backgroundColor = '#cf7a29';
+                else if (width > 50)
+                    document.getElementById("myBar2").style.backgroundColor = '#c23b3b';
+                else
+                    document.getElementById("myBar2").style.backgroundColor = '#4eb92d';
+                if (width >= 82) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    document.getElementById("demo2").innerHTML = width * 1 + '%';
+                }
+            }
+        }
+        function move3() {
+            var elem = document.getElementById("myBar3");
+            var width = 0;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width > 19 && width < 51)
+                    document.getElementById("myBar3").style.backgroundColor = '#cf7a29';
+                else if (width > 50)
+                    document.getElementById("myBar3").style.backgroundColor = '#c23b3b';
+                else
+                    document.getElementById("myBar3").style.backgroundColor = '#4eb92d';
+                if (width >= 62) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    document.getElementById("demo3").innerHTML = width * 1 + '%';
+                }
+            }
+        }
+        function move4() {
+            var elem = document.getElementById("myBar4");
+            var width = 0;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width > 19 && width < 51)
+                    document.getElementById("myBar4").style.backgroundColor = '#cf7a29';
+                else if (width > 50)
+                    document.getElementById("myBar4").style.backgroundColor = '#c23b3b';
+                else
+                    document.getElementById("myBar4").style.backgroundColor = '#4eb92d';
+                if (width >= 12) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    document.getElementById("demo4").innerHTML = width * 1 + '%';
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
