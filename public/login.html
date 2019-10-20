@@ -16,13 +16,36 @@
   <div class="form">
 
     <form>
-      <input type="text" placeholder="&#xf007;  username"/>
-      <input type="password" placeholder="&#xf023;  password"/>
-      <button>LOGIN</button>
+      <input id = "name" type="text" placeholder="&#xf007;  username"/>
+      <input id ="password" type="password" placeholder="&#xf023;  password"/>
+      <button id = "login">LOGIN</button>
       <p class="message"></p>
     </form>
   </div>
 </div>
 
 </body>
+<script>
+  const name = document.getElementById('name');
+  const password = doucument.getElementById('password');
+  const login = document.getElementById('login');
+
+  login.addEventListener("click",(event)=>{
+    axios.get('/login', {
+    params: {
+      name : name.innerText,
+      password : password.innerText
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    console.log('Log in was initiated');
+  });  
+  });
+</script>
 </html>

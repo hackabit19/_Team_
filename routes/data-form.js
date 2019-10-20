@@ -3,13 +3,13 @@ const Event = require('../models/eventModel');
 
 router.post('/',(req,res)=>{
      new Event({
-         hour: req.body.hour,
-         date: req.body.date,
-         month: req.body.month,
-         year: req.body.year,
-         longitude: req.body.longitude,
-         latitude: req.body.latitude,
-         eventType: req.body.eventType
+         month: req.body.Month,
+         date: req.body.Date,
+         year: req.body.Year,
+         longitude: req.body.LOCATION_LONGITUDE,
+         latitude: req.body.LOCATION_LATITUDE,
+         hour: req.body.Hour,
+         eventType: req.body.Crime
      }).save().then(()=>{
          console.log('Data entered : '+ Event);
          res.send('Thanks for your response');

@@ -35,16 +35,27 @@ router.post('/',(req,res)=>{
         }
     });
 });
-
-router.get('/phone',(req,res)=>{
-    Safety.findOne({longitude : req.body.longitude, latitude : req.body.latitude},(err,result)=>{
+var spawn = require('child_process').spawn;
+/*router.get('/',(req,res)=>{
+    console.log("start");
+    /*Safety.findOne({longitude : req.body.longitude, latitude : req.body.latitude},(err,result)=>{
         if(err) console.log('Invalid or Unavailable details');
         else{
+            console.log("check");
             res.json(result).status(200);
         }
     });
+    //var latitude = req.body.latitude,longitude = req.body.longitude;
+    var latitude = 23.34,longitude=87.65;
+    var date = new Date().getDate(),month = new Date().getMonth(),year = new Date().getFullYear(),time = new Date().getHours();
+    var process = spawn('python',["../finallcode.py",time,date,month,year,longitude,latitude]);
+    process.stdout.on('data',(data)=>{
+        var arrayAnswer = data.toString();
+        console.log("Hello!");
+        console.log(arrayAnswer);
+    });
     //res.json({text:'Hello'}).status(200);
-});
+});*/
 
 
 module.exports = router;
