@@ -99,16 +99,10 @@ app.get('/safetyFromAndroid',(req,res)=>{
       var arrayAnswer = (data.toString());
       //console.log("Hello!");
       console.log(arrayAnswer);
-      var num1 = Math.floor((Math.random() * 0.00001))+safety_params[0];
-      var num2 = Math.floor((Math.random() * 0.00001))+safety_params[1];
-      var num3 = Math.floor((Math.random() * 0.00001))+safety_params[2];
-      var num4 = Math.floor((Math.random() * 0.00001))+safety_params[3];
-      res.send(num1+","+num2+","+num3+","+num4);
-      //var resultToReturn = arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4];
-      //res.join({"murder": arrayAnswer[0],"harassment":arrayAnswer[1],"rape":arrayAnswer[2],"theft":arrayAnswer[3],"safety_index":arrayAnswer[4]})
-      //console.log(arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4]);
-      //res.send(arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4]);
-      //res.send("hello!");
+      
+      res.join({"murder": arrayAnswer[0],"harassment":arrayAnswer[1],"rape":arrayAnswer[2],"theft":arrayAnswer[3],"safety_index":arrayAnswer[4]})
+      console.log(arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4]);
+      res.send(arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4]);
     });
   
   //res.json({text:'Hello'}).status(200);
