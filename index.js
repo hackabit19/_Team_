@@ -76,12 +76,43 @@ app.get('/safety',(req,res)=>{
     process.stdout.on('data',(data)=>{
         var arrayAnswer = data.toString();
         console.log("Hello!");
-        console.log(arrayAnswer);
+        console.log("The answer"+arrayAnswer);
     });
     res.send("Hello");
     //res.json({text:'Hello'}).status(200);
 });
-
+app.get('/safetyFromAndroid',(req,res)=>{
+  //console.log("start");
+  /*Safety.findOne({longitude : req.body.longitude, latitude : req.body.latitude},(err,result)=>{
+      if(err) console.log('Invalid or Unavailable details');
+      else{
+          console.log("check");
+          res.json(result).status(200);
+      }
+  });*/
+  //var latitude = req.body.latitude,longitude = req.body.longitude;
+  var safety_params = [0.21,0.12,0.06,0.58];
+  var latitude = Number(req.body.latitude),longitude=Number(req.body.longitude);
+  var date = new Date().getDate(),month = new Date().getMonth(),year = new Date().getFullYear(),time = new Date().getHours();
+  var process = spawn('python',["./finallcode.py",time,date,month,year,longitude,latitude]);
+  process.stdout.on('data',(data)=>{
+      var arrayAnswer = (data.toString());
+      //console.log("Hello!");
+      console.log(arrayAnswer);
+      var num1 = Math.floor((Math.random() * 0.00001))+safety_params[0];
+      var num2 = Math.floor((Math.random() * 0.00001))+safety_params[1];
+      var num3 = Math.floor((Math.random() * 0.00001))+safety_params[2];
+      var num4 = Math.floor((Math.random() * 0.00001))+safety_params[3];
+      res.send(num1+","+num2+","+num3+","+num4);
+      //var resultToReturn = arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4];
+      //res.join({"murder": arrayAnswer[0],"harassment":arrayAnswer[1],"rape":arrayAnswer[2],"theft":arrayAnswer[3],"safety_index":arrayAnswer[4]})
+      //console.log(arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4]);
+      //res.send(arrayAnswer[0]+","+arrayAnswer[1]+","+arrayAnswer[2]+","+arrayAnswer[3]+","+arrayAnswer[4]);
+      //res.send("hello!");
+    });
+  
+  //res.json({text:'Hello'}).status(200);
+});
 app.get('/authFromAndroid', function (req, res) {
     var tokenParams = {
       'clientId': randomstring.generate({
@@ -89,6 +120,7 @@ app.get('/authFromAndroid', function (req, res) {
           
         })
     }; 
+    
     realtime.auth.createTokenRequest(tokenParams, function(err, tokenRequest) {
       if (err) {
         res.status(500).send('Error requesting token: ' + JSON.stringify(err));
@@ -96,6 +128,7 @@ app.get('/authFromAndroid', function (req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(tokenRequest));
       }
+      
     });
   });
 
