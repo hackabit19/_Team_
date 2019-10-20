@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 
 //auth login
 router.get('/login',(req,res)=>{
-    res.render('home',{user: req.user});
+    res.render('dashboard');
 });
 
 //auth logout

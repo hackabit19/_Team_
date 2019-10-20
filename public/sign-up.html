@@ -27,58 +27,12 @@
       
     </form>
 
-    <form class="login-form">
-      <button id="signUp">SIGN UP</button>
-      <div class="google-btn">
-        <div class="google-icon-wrapper">
-          <img class="google-icon-svg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-        </div>
-        <p class="btn-text" id="googleAuth"><b>Sign in with Google</b></p>
-      </div>
-    </form>
+    
+    <a href="/dashboard.html">
+      <button>Sign Up</button>
+   </a>
+    
   </div>
 </div>
 </body>
-<script>
-  const signUp = document.getElementById('signUp');
-  const auth = document.getElementById('googleAuth');
-  const name = document.getElementById('name');
-  const email = document.getElementById('email');
-  const gender = document.getElementById('gender');
-  const password = document.getElementById('password');
-
-  signUp.addEventListener("click",(event)=>{
-    axios.get('/login', {
-    params: {
-      name : name.innerText,
-      email : email.innerText,
-      gender : gender.innerText,
-      password : password.innerText
-    }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-  .finally(function () {
-    console.log('Sign Up was initiated');
-  });  
-  });
-
-  auth.addEventListener("click",(event)=>{
-    axios.get('/auth/google')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    console.log('Auth was initiated');
-  });
-  })   
-</script>
 </html>

@@ -3,21 +3,15 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np # linear algebra
 import pandas as pd
-import pickle
-import seaborn as sns
+
 import sklearn
-from sklearn.model_selection import cross_val_predict
-from sklearn import linear_model
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
-import warnings
-from sklearn.exceptions import DataConversionWarning
-warnings.filterwarnings(action='ignore')
+
+
 from sklearn import preprocessing
 from sklearn.svm import SVC
 from sklearn import tree
-from sklearn.model_selection import cross_validate
+
 from sklearn.tree import DecisionTreeClassifier
 print("check")
 df = pd.read_csv('./public/hack2.csv')

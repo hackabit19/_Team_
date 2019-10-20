@@ -24,11 +24,17 @@
     "cors": "^2.8.5",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "matplotlib": "^1.0.0",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.5",
+    "numpy": "0.0.1",
+    "pandas": "0.0.3",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7",
-    "randomstring": "^1.1.5"
+    "python": "0.0.4",
+    "randomstring": "^1.1.5",
+    "scikit-learn": "^0.1.0",
+    "sys": "0.0.1"
   }
 }
