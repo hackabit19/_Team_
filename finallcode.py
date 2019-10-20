@@ -1,11 +1,19 @@
 #import the libraries
 import sys
-import matplotlib.pyplot as plt
 import numpy as np # linear algebra
 import pandas as pd
+<<<<<<< HEAD
 
 import sklearn
 from sklearn.model_selection import train_test_split
+=======
+import sklearn
+
+from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+>>>>>>> f79c30415f267038297d68510fd26a61cd34cb09
 
 
 from sklearn import preprocessing
@@ -26,9 +34,18 @@ print(hour)
 
 x = [[hour,date,month,year,longitude,latitude]]
 a = []
-
+#rape
+copy = df.copy()
+replace_map = {'CRIME' : {'Attempt to Murder' : 0, 'Harassment' : 0 , 'Rape' : 1, 'Theft' : 0}}
+copy.replace(replace_map, inplace = True)
+target  = copy['CRIME']
+decision_tree = DecisionTreeClassifier(max_depth= 6, class_weight = {0:.4, 1 : 0.6})
+decision_tree.fit(df.drop(columns = 'CRIME') , target)
+p = decision_tree.predict_proba(x)[:,1]
+a.append(p[0])
 #murder
 copy = df.copy()
+print("hello")
 replace_map = {'CRIME' : {'Attempt to Murder' : 1, 'Harassment' : 0 , 'Rape' : 0, 'Theft' : 0}}
 copy.replace(replace_map, inplace = True)
 target  = copy['CRIME']
@@ -51,15 +68,7 @@ p = clf.predict_proba(x)[:,1]
 a.append(p[0])
 
 
-#rape
-copy = df.copy()
-replace_map = {'CRIME' : {'Attempt to Murder' : 0, 'Harassment' : 0 , 'Rape' : 1, 'Theft' : 0}}
-copy.replace(replace_map, inplace = True)
-target  = copy['CRIME']
-decision_tree = DecisionTreeClassifier(max_depth= 6, class_weight = {0:.4, 1 : 0.6})
-decision_tree.fit(df.drop(columns = 'CRIME') , target)
-p = decision_tree.predict_proba(x)[:,1]
-a.append(p[0])
+
 
 
 #theft
